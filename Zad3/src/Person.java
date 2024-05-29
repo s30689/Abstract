@@ -1,18 +1,19 @@
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.Year;
 import java.util.Date;
 
 public abstract class Person {
     String firstName;
     String lastName;
-    LocalDate birthdayYear;
+    int birthdayYear;
 
 
-    public Person(String firstName, String lastName, LocalDate birthdayYear){}
+    public Person(String firstName, String lastName, int birthdayYear){}
 
-LocalDate currentDate;
+    int currentDate = Year.now().getValue();
     public int getAge() {
-        return Period.between(birthdayYear,currentDate).getYears();
+        return currentDate-birthdayYear;
     }
 }
 

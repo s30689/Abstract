@@ -2,14 +2,14 @@ import java.time.Period;
 import java.time.LocalDate;
 
 public class Employee extends Person {
-    LocalDate hireDate;
+    int hireYear;
     String companyName;
-    int salary;
+    double salary;
 
 
-    public Employee(String firstName, String lastName, LocalDate birthdayYear, LocalDate hireDate, String companyName, int salary) {
+    public Employee(String firstName, String lastName, int birthdayYear, int hireDate, String companyName, double salary) {
         super(firstName, lastName, birthdayYear);
-        this.hireDate = hireDate;
+        this.hireYear = hireYear;
         this.companyName = companyName;
         this.salary = salary;
 
@@ -17,17 +17,17 @@ public class Employee extends Person {
     }
 
     public int getJobSeniority() {
-        return Period.between(hireDate, currentDate).getYears();
+        return hireYear-currentDate;
     }
 
-    public int getSalary() {
+    public double getSalary() {
         return salary;
     }
 
 @Override
     public String toString() {
 
-        System.out.println(getClass().getSimpleName() + "with lastName" + lastName + " and age" + getAge() + " has salary" + salary);
-    return null;
+        return getClass().getSimpleName() + "with lastName" + lastName + " and age" + getAge() + " has salary" + salary;
+
 }
 }
